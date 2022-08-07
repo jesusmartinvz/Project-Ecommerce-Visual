@@ -29,7 +29,6 @@ namespace Ecommerce.Models
         public decimal Precio { get; set; }
 
         [Required]
-        //[MaxLength(4)]
         [Display(Name = "Stock")]
         public int Stock { get; set; }
 

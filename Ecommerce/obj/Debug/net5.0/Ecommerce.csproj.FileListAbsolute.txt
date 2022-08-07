@@ -143,3 +143,13 @@ F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Producto\Edit.cshtml.g.cs
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Producto\Delete.cshtml.g.cs
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Producto\Details.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Usuario\Create.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Usuario\Delete.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Usuario\Details.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Usuario\Index.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Usuario\Edit.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Categoria\Index.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Categoria\Create.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Categoria\Edit.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Categoria\Delete.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Categoria\Details.cshtml.g.cs

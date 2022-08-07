@@ -13,6 +13,11 @@ namespace Ecommerce.Models
         public int IdUsuario { get; set; }
 
         [Required]
+        [MaxLength(12)]
+        [Display(Name = "Doc. Identidad")]
+        public string Dni { get; set; }
+
+        [Required]
         [MaxLength(45)]
         [Display(Name = "Nombre")]
         public string Nombre { get; set; }
@@ -23,6 +28,8 @@ namespace Ecommerce.Models
         public string Apellido { get; set; }
 
         [Required]
+        /*[DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]*/
         [Display(Name = "Fecha Nacimiento")]
         public DateTime FecNacimiento { get; set; }
 
@@ -45,9 +52,5 @@ namespace Ecommerce.Models
         [MaxLength(50)]
         [Display(Name = "Direccion")]
         public string Direccion { get; set; }
-
-        [Required]
-        [Display(Name = "Tipo")]
-        public int IdTipo { get; set; }
     }
 }

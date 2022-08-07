@@ -17,6 +17,53 @@ namespace Ecommerce.Repositories
             cnx = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetConnectionString("cn");
         }
 
+        public string Agregar(Categoria obj)
+        {
+            string mensaje = string.Empty;
+
+            using (SqlConnection cn = new SqlConnection(cnx))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("usp_CategoriaMerge", cn);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PIdCategoria", obj.IdCategoria);
+                    cmd.Parameters.AddWithValue("@Pdescripcion", obj.descripcion);
+                    cn.Open();
+                    int c = cmd.ExecuteNonQuery();
+                    mensaje = $"se ha insertado {c} Categoria";
+                }
+                catch (Exception ex)
+                {
+                    mensaje = ex.Message;
+                }
+            }
+            return mensaje;
+        }
+
+        public string Eliminar(Categoria obj)
+        {
+            string mensaje = "";
+            using (SqlConnection cn = new SqlConnection(cnx))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("usp_EliminarCategoria", cn);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PIdCategoria", obj.IdCategoria);
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    int c = cmd.ExecuteNonQuery();
+                    mensaje = c + "";
+                }
+                catch (Exception ex)
+                {
+                    mensaje = "No se pudo eliminar: " + ex.Message;
+                }
+            }
+            return mensaje;
+        }
+
         public IEnumerable<Categoria> Listar()
         {
             List<Categoria> Lista = new List<Categoria>();
@@ -35,6 +82,12 @@ namespace Ecommerce.Repositories
                 }
             }
             return Lista;
+        }
+
+        public Categoria Obtener(int id)
+        {
+            Categoria? model = Listar().Where(p => p.IdCategoria == id).FirstOrDefault();
+            return model;
         }
     }
 }

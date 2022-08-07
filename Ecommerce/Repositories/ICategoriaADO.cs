@@ -8,6 +8,9 @@ namespace Ecommerce.Repositories
 {
     interface ICategoriaADO
     {
+        string Agregar(Categoria obj);
+        string Eliminar(Categoria obj);
+        Categoria Obtener(int id);
         IEnumerable<Categoria> Listar();
     }
 }
