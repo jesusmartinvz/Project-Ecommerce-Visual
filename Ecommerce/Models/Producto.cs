@@ -14,7 +14,7 @@ namespace Ecommerce.Models
 
         [Required]
         [MaxLength(5)]
-        [Display(Name = "Cód. Producto")]
+        [Display(Name = "Código")]
         public string CodProducto { get; set; }
 
         [Required]
@@ -51,6 +51,14 @@ namespace Ecommerce.Models
             get
             {
                 return string.Format("~/imagenes/productos/{0}.jpg", this.IdProducto);
+            }
+        }
+
+        public decimal precioFinal
+        {
+            get
+            {
+                return Precio - (Precio * Descuento);
             }
         }
     }

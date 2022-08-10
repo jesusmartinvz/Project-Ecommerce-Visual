@@ -42,14 +42,14 @@ go
 
 --insertando valores
 
-insert into producto values('T0001','LOGITECH G111',100.28,97,12,0,1);
-insert into producto values('M0001','MICRONICS',20.00,17,6,0,2);
-insert into producto values('M0002','HYPERX SURGE RGB',120.50,92,12,0,2)
-insert into producto values('P0001','LG G123',520.10,198,18,0,3)
-insert into producto values('P0002','SAMSUNG S312',600.00,250,18,0,3)
-insert into producto values('V0001','NVIDIA GTX 1660',1900.00,53,24,0,4)
-insert into producto values('V0002','AMD RANDEON RX580',1500.00,100,12,0,4)
-insert into producto values('P0001','ASROCK B450 STEEL LEGEND',1421.00,56,16,0,5)
+insert into producto values('T0001','LOGITECH G111',100.28,97,12,0.05,1);
+insert into producto values('M0001','AURICULAR MICRONICS CITRIX',20.00,17,6,0.10,2);
+insert into producto values('M0002','HYPERX SURGE RGB',120.50,92,12,0.08,2)
+insert into producto values('P0001','LG G123',520.10,198,18,0.07,3)
+insert into producto values('P0002','SAMSUNG S312',600.00,250,18,0.04,3)
+insert into producto values('V0001','NVIDIA GTX 1660',1900.00,53,24,0.09,4)
+insert into producto values('V0002','AMD RANDEON RX580',1500.00,100,12,0.15,4)
+insert into producto values('P0001','ASROCK B450 STEEL LEGEND',1421.00,56,16,0.20,5)
 
 --revisando
 select * from producto
@@ -89,11 +89,11 @@ foreign key(IdTipo)references tipo(IdTipo)
 go
 
 INSERT INTO usuario (Dni, Nombre,Apellido,FecNacimiento,Email,Contraseña,Telefono, Direccion,IdTipo)
-VALUES('78954783', 'JESUS MARTIN' , 'VELASQUEZ ZAVALETA','1996-03-31','JESUS_MARTIM@HOTMAIL.COM','123123','918841895','Jr. el Sol 342',2)
+VALUES('78954783', 'JESUS MARTIN' , 'VELASQUEZ ZAVALETA','1996-03-31','jesus_martim@hotmail.com','123123','918841895','Jr. el Sol 342',2)
 INSERT INTO usuario (Dni, Nombre,Apellido,FecNacimiento,Email,Contraseña,Telefono, Direccion,IdTipo)
 VALUES('08754872', 'Dino Jesus' , 'Chacaliaza','2001-08-12','dinojesus11@gmail.com','dino','947211598','Jr. Mercado Central 1120', 2)
 INSERT INTO usuario (Dni, Nombre,Apellido,FecNacimiento,Email,Contraseña,Telefono, Direccion,IdTipo)
-VALUES('79654787', 'PEPITO' , 'PICAPIEDRA','1991-08-15','PEPE@gmail.com','123456','555111333','Jr. Huaraz 123', 1)
+VALUES('79654787', 'PEPITO' , 'PICAPIEDRA','1991-08-15','pepe@gmail.com','123456','555111333','Jr. Huaraz 123', 1)
 
 SELECT * FROM usuario
 
@@ -296,6 +296,26 @@ GO
 /*
 exec usp_UsuarioMerge 0, '7888888', 'testname', 'testapellido', '1991-01-01', 'test@test.com', '12345', '99365942','jr.cuzco 123';
 GO*/
+
+CREATE PROCEDURE usp_Login
+@PEmail VARCHAR(50),
+@PPassword VARCHAR(50)
+AS
+BEGIN
+	SELECT Email, Contraseña FROM usuario WHERE Email = @PEmail AND Contraseña = @PPassword
+END
+GO
+
+CREATE PROCEDURE usp_LoginAdmin
+@PEmail VARCHAR(50),
+@PPassword VARCHAR(50),
+@PIdTipo int
+AS
+BEGIN
+	SELECT Email, Contraseña FROM usuario WHERE Email = @PEmail AND Contraseña = @PPassword AND IdTipo = @PIdTipo
+END
+GO
+
 
 
 

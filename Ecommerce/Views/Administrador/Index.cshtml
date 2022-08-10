@@ -1,0 +1,37 @@
+﻿@model Ecommerce.Models.Usuario
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Vacio.cshtml";
+}
+<link rel="stylesheet" href="~/css/loginstyleADM.css" />
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 contenedor-login">
+            <div class="cuerpo_formulario">
+                <img src="~/imagenes/login/candado.png" alt="usuario_login">
+                <p class="p-text">Administración</p>
+                @using (Html.BeginForm("Index", "Administrador", FormMethod.Post, new { @class = "form-signin" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <br/>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Correo Electrónico" })
+
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    <br />
+                    @Html.PasswordFor(m => m.Contraseña, new { @class = "form-control", placeholder = "Contraseña" })
+                    @Html.ValidationMessageFor(m => m.Contraseña, "", new { @class = "text-danger" })
+                    <br />
+                    <button type="submit">Iniciar Sesión</button>
+                    //<input type="submit" value="Iniciar Sesión" class="btn btn-lg btn-primary btn-block" />
+
+                }
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

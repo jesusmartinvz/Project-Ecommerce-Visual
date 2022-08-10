@@ -123,7 +123,6 @@ F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Ecommerce.TagHelpers.input.cache
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Ecommerce.TagHelpers.output.cache
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Ecommerce.RazorCoreGenerate.cache
-F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -153,3 +152,12 @@ F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Categoria\Edit.cshtml.g.cs
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Categoria\Delete.cshtml.g.cs
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Categoria\Details.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Ecommerce\Catalogo.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Ecommerce\Agregar.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Ecommerce\Carrito.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Shared\_Master.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Shared\_Maintenance.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Shared\_Vacio.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Administrador\Index.cshtml.g.cs

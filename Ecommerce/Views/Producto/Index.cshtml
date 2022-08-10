@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Maintenance.cshtml";
 }
 
 <h1>Index</h1>
@@ -12,9 +13,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdProducto)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.CodProducto)
             </th>
@@ -33,21 +31,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Descuento)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCategoria)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Foto)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdProducto)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CodProducto)
             </td>
@@ -67,15 +56,9 @@
                 @Html.DisplayFor(modelItem => item.Descuento)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdCategoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Foto)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.IdProducto }) |
-                @Html.ActionLink("Details", "Details", new { id=item.IdProducto }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.IdProducto })
+                @Html.ActionLink("Editar", "Edit", new { id=item.IdProducto }, new { @class = "btn btn-outline-primary" }) |
+                @Html.ActionLink("Detalles", "Details", new { id=item.IdProducto }, new { @class = "btn btn-outline-info" }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id=item.IdProducto }, new { @class = "btn btn-outline-danger" })
             </td>
         </tr>
 }

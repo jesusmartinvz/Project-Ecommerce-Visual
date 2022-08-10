@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Ecommerce.Models.Item>
+@{
+    ViewData["Title"] = "Carrito";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-3">
+                <!-- Billing Details -->
+                <!-- /Billing Details -->
+                <!-- Shiping Details -->
+           
+                <!-- /Shiping Details -->
+                <!-- Order notes -->
+                <!-- /Order notes -->
+            </div>
+
+            <!-- Order Details -->
+            <div class="col-md-6 order-details">
+                <div class="section-title text-center">
+                    <h3 class="title">Su Orden</h3>
+                </div>
+                <div class="order-summary">
+                    <div class="order-col">
+                        <div><strong>PRODUCTO</strong></div>
+                        <div><strong>TOTAL</strong></div>
+                        <div><strong></strong></div>
+                    </div>
+                    <div class="order-products">
+                        @foreach (var item in Model)
+                        {
+                            <div class="order-col">
+                                <div>@Html.DisplayFor(modelItem => item.Unidades)x @Html.ActionLink(item.Descripcion, "Agregar", new { id = item.IdProducto })</div>
+                                <div>@Html.DisplayFor(modelItem => item.Importe)</div>
+                                <div>@Html.ActionLink("", "Quitar", new { id = item.IdProducto }, new { @class = "fa fa-trash fa-2x" })</div>
+                            </div>
+                        }
+                    </div>
+                    <div class="order-col">
+                        <div>Envio</div>
+                        <div><strong>Gratis</strong></div>
+                        <div><strong></strong></div>
+                    </div>
+                    <div class="order-col">
+                        <div><strong>TOTAL</strong></div>
+                        <div><strong class="order-total">S/ @ViewBag.total</strong></div>
+                        <div><strong></strong></div>
+                    </div>
+                </div>
+                <div class="payment-method">
+                    <div class="input-radio">
+                        <input type="radio" name="payment" id="payment-1">
+                        <label for="payment-1">
+                            <span></span>
+                            Transferencia bancaria directa
+                        </label>
+                        <div class="caption">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                    <div class="input-radio">
+                        <input type="radio" name="payment" id="payment-2">
+                        <label for="payment-2">
+                            <span></span>
+                            Cheque Pago
+                        </label>
+                        <div class="caption">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                    <div class="input-radio">
+                        <input type="radio" name="payment" id="payment-3">
+                        <label for="payment-3">
+                            <span></span>
+                            Sistema Paypal
+                        </label>
+                        <div class="caption">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-checkbox">
+                    <input type="checkbox" id="terms">
+                    <label for="terms">
+                        <span></span>
+                        He leído y acepto los <a href="#">términos y condiciones</a>
+                    </label>
+                </div>
+                <a href="#" class="primary-btn order-submit">Ordenar ahora</a>
+            </div>
+            <!-- /Order Details -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<div>
+    @ViewBag.mensaje
+</div>
+

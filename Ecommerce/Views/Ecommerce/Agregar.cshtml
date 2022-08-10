@@ -1,0 +1,91 @@
+﻿@model Ecommerce.Models.Producto
+
+@{
+    ViewData["Title"] = "Agregar";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+<link rel="stylesheet" href="~/css/Layout/style/perzonalizado.css" />
+
+<br/>
+<h2 style="text-align: center;">Adicionar Producto</h2>
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- Product main img -->
+            <div class="col-md-5 col-md-push-2">
+                <div id="product-main-img">
+                    <div class="product-preview">
+                        <img src="@Url.Content(Model.Foto)" />
+                    </div>
+                </div>
+            </div>
+            <!-- /Product main img -->
+            <!-- Product thumb imgs -->
+            <div class="col-md-2  col-md-pull-5">
+            </div>
+            <!-- /Product thumb imgs -->
+            <!-- Product details -->
+            <div class="col-md-5">
+                <div class="product-details">
+                    <h2 class="product-name">@Html.DisplayFor(model => model.Descripcion)</h2>
+                    <div>
+                        <div class="product-rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <a class="review-link" href="#">10 Review(s) | Add your review</a>
+                    </div>
+                    <div>
+                        <h3 class="product-price">S/@Html.DisplayFor(model => model.precioFinal)<del class="product-old-price">@Html.DisplayFor(model => model.Precio)</del></h3>
+                        <span class="product-available">@Html.DisplayFor(model => model.Stock) Stock</span>
+                    </div>
+                    <p>Uno de los mejores productos que encontraras en PCStore, ofreciendo productos de la mejor calidad, al mejor precio.</p>
+                    <br/>
+                    <div class="add-to-cart">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.Hidden("id", Model.IdProducto)
+                            <div class="qty-label"> Cantidad </div>
+                            @Html.TextBox("cantidad", 1, new { @type = "number", @class = "txbox", @min = "1" })
+                            <br /><br />
+                            <div class="alert-txt">
+                                @ViewBag.mensaje
+                            </div>
+                            <button type="submit" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Agregar al Carro</button>
+                        }
+                    </div>
+
+                    <ul class="product-links">
+                        <li>Category:</li>
+                        <li><a href="#">Headphones</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+
+                    <ul class="product-links">
+                        <li>Share:</li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <!-- /Product details -->
+            
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<div>
+    @ViewBag.mensaje
+</div>

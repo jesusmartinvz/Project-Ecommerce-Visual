@@ -14,7 +14,7 @@ namespace Ecommerce.Models
 
         [Required]
         [MaxLength(12)]
-        [Display(Name = "Doc. Identidad")]
+        [Display(Name = "DNI")]
         public string Dni { get; set; }
 
         [Required]

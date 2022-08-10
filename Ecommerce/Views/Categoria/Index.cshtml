@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Maintenance.cshtml";
 }
 
 <h1>Index</h1>
@@ -32,9 +32,9 @@
                 @Html.DisplayFor(modelItem => item.descripcion)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.IdCategoria }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IdCategoria }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IdCategoria })
+                @Html.ActionLink("Editar", "Edit", new { id=item.IdCategoria }, new { @class = "btn btn-outline-primary" }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.IdCategoria }, new { @class = "btn btn-outline-info" }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdCategoria }, new { @class = "btn btn-outline-danger" })
             </td>
         </tr>
 }

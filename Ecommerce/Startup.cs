@@ -1,3 +1,4 @@
+using Ecommerce.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +25,16 @@ namespace Ecommerce
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<ICategoriaADO, CategoriaRepository>();
+            services.AddSingleton<IProductoADO, ProductoRepository>();
+            services.AddSingleton<IUsuarioADO, UsuarioRepository>();
+
+
+            //services.AddSession();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +53,9 @@ namespace Ecommerce
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            //USO DE LA SESION
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -50,7 +64,7 @@ namespace Ecommerce
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Producto}/{action=Index}/{id?}");
+                    pattern: "{controller=Ecommerce}/{action=Catalogo}/{id?}");
             });
         }
     }
