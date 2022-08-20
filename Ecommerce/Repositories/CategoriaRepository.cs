@@ -41,6 +41,32 @@ namespace Ecommerce.Repositories
             return mensaje;
         }
 
+        public IEnumerable<Categoria> buscarCategoria(string descripcion)
+        {
+            List<Categoria> Lista = new List<Categoria>();
+            if (string.IsNullOrEmpty(descripcion))
+            {
+                Lista = (List<Categoria>)Listar();
+                return Lista;
+            }
+            using (SqlConnection cn = new SqlConnection(cnx))
+            {
+                SqlCommand cmd = new SqlCommand("usp_BuscarCategoria @descripcion", cn);
+                cmd.Parameters.AddWithValue("@descripcion", descripcion);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Lista.Add(new Categoria()
+                    {
+                        IdCategoria = dr.GetInt32(0),
+                        descripcion = dr.GetString(1)
+                    });
+                }
+            }
+            return Lista;
+        }
+
         public string Eliminar(Categoria obj)
         {
             string mensaje = "";

@@ -316,6 +316,39 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE usp_BuscarCategoria(
+@descripcion varchar(50)
+)
+AS
+	BEGIN
+	SELECT * FROM categoria C
+	WHERE C.descripcion LIKE '%' + @descripcion + '%'
+END
+GO
+
+CREATE PROCEDURE usp_BuscarUsuario(
+@Dni varchar(12)
+)
+AS
+	BEGIN
+	SELECT * FROM usuario U
+	WHERE U.Dni LIKE '%' + @Dni + '%'
+END
+GO
+
+CREATE PROCEDURE usp_BuscarProducto(
+@CodProducto char(5)
+)
+AS
+	BEGIN
+	SELECT * FROM producto P
+	WHERE P.CodProducto LIKE @CodProducto + '%'
+END
+GO
+
+
+
+
 
 
 

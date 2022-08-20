@@ -5,17 +5,20 @@
     Layout = "~/Views/Shared/_Maintenance.cshtml";
 }
 
-<h1>Create</h1>
-
-<h4>Categoria</h4>
+<div class="cabecera">
+    <label>Crear Categoría</label>
+</div>
+<br />
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <!-- 
                 <label asp-for="IdCategoria" class="control-label"></label>
-                <input asp-for="IdCategoria" class="form-control" />
+                    -->
+                <input type="hidden" asp-for="IdCategoria" class="form-control" />
                 <span asp-validation-for="IdCategoria" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -24,7 +27,7 @@
                 <span asp-validation-for="descripcion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-sucess" />
+                <input type="submit" value="Crear" class="btn btn-success" />
                 <a asp-action="Index" class="btn btn-primary">Regresar</a>
             </div>
         </form>
@@ -35,7 +38,7 @@
 </div>
 
 <div>
-    
+
 </div>
 
 @section Scripts {

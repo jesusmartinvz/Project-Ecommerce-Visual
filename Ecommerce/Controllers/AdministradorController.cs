@@ -1,4 +1,5 @@
 ﻿using Ecommerce.Models;
+using Ecommerce.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -12,12 +13,14 @@ namespace Ecommerce.Controllers
 {
     public class AdministradorController : Controller
     {
+        private IUsuarioADO usuarioADO;
         const string SesionUsuario = "_User";
         private readonly IConfiguration _configuration;
 
         public AdministradorController(IConfiguration configuration)
         {
             _configuration = configuration;
+            usuarioADO = new UsuarioRepository();
         }
 
         public IActionResult Index()
@@ -35,6 +38,7 @@ namespace Ecommerce.Controllers
             }
             else
             {
+                List<Usuario> Lista = new List<Usuario>();
                 using (SqlConnection cn = new SqlConnection(cnx))
                 {
                     cn.Open();
@@ -47,7 +51,8 @@ namespace Ecommerce.Controllers
 
                     if (dr.Read())
                     {
-                        HttpContext.Session.SetString(SesionUsuario, model.Email);
+                        Usuario? model2 = usuarioADO.Listar().Where(p => p.Email == model.Email).FirstOrDefault();
+                        HttpContext.Session.SetString(SesionUsuario, model2.Nombre);
                         return RedirectToAction("Index", "Home");
                     }
                     else
@@ -59,6 +64,12 @@ namespace Ecommerce.Controllers
 
             return View(model);
 
+        }
+
+        public IActionResult CerrarSesion()
+        {
+            HttpContext.Session.Remove(SesionUsuario);
+            return RedirectToAction("Index", "Administrador");
         }
     }
 }

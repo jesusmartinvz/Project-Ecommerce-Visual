@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/_Maintenance.cshtml";
 }
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
+<div class="cabecera">
+    <label>Eliminar Usuario</label>
+</div>
+<br />
+<h3>¿Estás seguro de eliminar esta categoría?</h3>
 <div>
-    <h4>Usuario</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -71,7 +72,7 @@
         @ViewBag.mensaje
     </div>
     <form asp-action="Delete">
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
         <a asp-action="Index" class="btn btn-primary">Regresar</a>
     </form>
 </div>

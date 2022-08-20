@@ -104,5 +104,38 @@ namespace Ecommerce.Repositories
             Usuario? model = Listar().Where(p => p.IdUsuario == id).FirstOrDefault();
             return model;
         }
+
+        public IEnumerable<Usuario> buscarDni(string dni)
+        {
+            List<Usuario> Lista = new List<Usuario>();
+            if (string.IsNullOrEmpty(dni))
+            {
+                Lista = (List<Usuario>)Listar();
+                return Lista;
+            }
+            using (SqlConnection cn = new SqlConnection(cnx))
+            {
+                SqlCommand cmd = new SqlCommand("usp_BuscarUsuario @Dni", cn);
+                cmd.Parameters.AddWithValue("@Dni", dni);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Lista.Add(new Usuario()
+                    {
+                        IdUsuario = dr.GetInt32(0),
+                        Dni = dr.GetString(1),
+                        Nombre = dr.GetString(2),
+                        Apellido = dr.GetString(3),
+                        FecNacimiento = dr.GetDateTime(4),
+                        Email = dr.GetString(5),
+                        Contraseña = dr.GetString(6),
+                        Telefono = dr.GetString(7),
+                        Direccion = dr.GetString(8)
+                    });
+                }
+            }
+            return Lista;
+        }
     }
 }

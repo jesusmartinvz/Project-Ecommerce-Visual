@@ -1,4 +1,5 @@
 ﻿using Ecommerce.Models;
+using Ecommerce.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -7,21 +8,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Ecommerce.Controllers
 {
     public class LoginController : Controller
     {
-        const string SesionUsuario = "_User";
+        private IUsuarioADO usuarioADO;
+        const string SesionUsuario = "_UserNormal";
         private readonly IConfiguration _configuration;
 
         public LoginController(IConfiguration configuration)
         {
             _configuration = configuration;
+            usuarioADO = new UsuarioRepository();
         }
 
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("Carrito") == null)
+            {
+                HttpContext.Session.SetString("Carrito", JsonConvert.SerializeObject(new List<Item>()));
+            }
             return View(new Usuario());
         }
 
@@ -45,7 +53,8 @@ namespace Ecommerce.Controllers
                     SqlDataReader dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        HttpContext.Session.SetString(SesionUsuario, model.Email);
+                        Usuario? model2 = usuarioADO.Listar().Where(p => p.Email == model.Email).FirstOrDefault();
+                        HttpContext.Session.SetString(SesionUsuario, model2.Nombre);
                         return RedirectToAction("Catalogo", "Ecommerce");
                     }
                     else
@@ -57,6 +66,12 @@ namespace Ecommerce.Controllers
 
             return View(model);
 
+        }
+
+        public IActionResult CerrarSesion()
+        {
+            HttpContext.Session.Remove(SesionUsuario);
+            return RedirectToAction("Catalogo", "Ecommerce");
         }
     }
 }

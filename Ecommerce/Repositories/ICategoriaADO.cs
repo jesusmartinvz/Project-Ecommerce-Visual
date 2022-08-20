@@ -12,5 +12,6 @@ namespace Ecommerce.Repositories
         string Eliminar(Categoria obj);
         Categoria Obtener(int id);
         IEnumerable<Categoria> Listar();
+        IEnumerable<Categoria> buscarCategoria(string descripcion);
     }
 }

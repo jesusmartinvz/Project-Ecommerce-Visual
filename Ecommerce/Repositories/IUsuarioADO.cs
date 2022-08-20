@@ -12,5 +12,6 @@ namespace Ecommerce.Repositories
         string Eliminar(Usuario obj);
         Usuario Obtener(int id);
         IEnumerable<Usuario> Listar();
+        IEnumerable<Usuario> buscarDni(string dni);
     }
 }

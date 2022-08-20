@@ -5,11 +5,23 @@
     Layout = "~/Views/Shared/_Maintenance.cshtml";
 }
 
-<h1>Index</h1>
+<div class="cabecera">
+    <label>Usuarios</label>
+</div>
+<br />
+<div>
+    <a asp-action="Create" class="btn btn-success">Nueva Usuario</a>
+    <div style="float:right">
+        @using (Html.BeginForm("Index", "Usuario"))
+        {
+            <em> Dni: </em>
+            @Html.TextBox("dni")
+            <button>Buscar</button>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+        }
+    </div>
+</div>
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -32,29 +44,30 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dni)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                <label>*****</label>
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id=item.IdUsuario }, new { @class = "btn btn-outline-primary" }) |
-                @Html.ActionLink("Detalles", "Details", new { id = item.IdUsuario }, new { @class = "btn btn-outline-info" }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.IdUsuario }, new { @class = "btn btn-outline-danger" })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dni)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <label>*****</label>
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdUsuario }, new { @class = "btn btn-outline-primary" }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.IdUsuario }, new { @class = "btn btn-outline-info" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdUsuario }, new { @class = "btn btn-outline-danger" })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

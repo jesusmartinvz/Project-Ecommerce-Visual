@@ -22,6 +22,12 @@ namespace Ecommerce.Controllers
             return View(await Task.Run(() => usuarioADO.Listar()));
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Index(string dni)
+        {
+            return View(await Task.Run(() => usuarioADO.buscarDni(dni)));
+        }
+
         public async Task<IActionResult> Create()
         {
             return View(await Task.Run(() => new Usuario()));

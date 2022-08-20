@@ -103,5 +103,37 @@ namespace Ecommerce.Repositories
             Producto? model = Listar().Where(p => p.IdProducto == id).FirstOrDefault();
             return model;
         }
+
+        public IEnumerable<Producto> buscarCod(string codigo)
+        {
+            List<Producto> Lista = new List<Producto>();
+            if (string.IsNullOrEmpty(codigo))
+            {
+                Lista = (List<Producto>)Listar();
+                return Lista;
+            }
+            using (SqlConnection cn = new SqlConnection(cnx))
+            {
+                SqlCommand cmd = new SqlCommand("usp_BuscarProducto @CodProducto", cn);
+                cmd.Parameters.AddWithValue("@CodProducto", codigo);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Lista.Add(new Producto()
+                    {
+                        IdProducto = dr.GetInt32(0),
+                        CodProducto = dr.GetString(1),
+                        Descripcion = dr.GetString(2),
+                        Precio = dr.GetDecimal(3),
+                        Stock = dr.GetInt32(4),
+                        Garantia = dr.GetInt32(5),
+                        Descuento = dr.GetDecimal(6),
+                        IdCategoria = dr.GetInt32(7)
+                    });
+                }
+            }
+            return Lista;
+        }
     }
 }

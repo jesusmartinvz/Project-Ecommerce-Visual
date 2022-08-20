@@ -5,11 +5,23 @@
     Layout = "~/Views/Shared/_Maintenance.cshtml";
 }
 
-<h1>Index</h1>
+<div class="cabecera">
+    <label>Productos</label>
+</div>
+<br />
+<div>
+    <a asp-action="Create" class="btn btn-success">Nuevo Producto</a>
+    <div style="float:right">
+        @using (Html.BeginForm("Index", "Producto"))
+        {
+            <em> Codigo: </em>
+            @Html.TextBox("codigo")
+            <button>Buscar</button>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+        }
+    </div>
+</div>
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -35,33 +47,34 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodProducto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Garantia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descuento)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id=item.IdProducto }, new { @class = "btn btn-outline-primary" }) |
-                @Html.ActionLink("Detalles", "Details", new { id=item.IdProducto }, new { @class = "btn btn-outline-info" }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id=item.IdProducto }, new { @class = "btn btn-outline-danger" })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodProducto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Garantia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descuento)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdProducto }, new { @class = "btn btn-outline-primary" }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.IdProducto }, new { @class = "btn btn-outline-info" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto }, new { @class = "btn btn-outline-danger" })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 <div>

@@ -25,6 +25,12 @@ namespace Ecommerce.Controllers
             return View(await Task.Run(() => productoADO.Listar()));
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Index(string codigo)
+        {
+            return View(await Task.Run(() => productoADO.buscarCod(codigo)));
+        }
+
         public async Task<IActionResult> Create()
         {
             ViewBag.category = new SelectList(await Task.Run(() => categoriaADO.Listar()), "IdCategoria", "descripcion");
