@@ -122,5 +122,10 @@ namespace Ecommerce.Controllers
             return RedirectToAction("Carrito");
         }
 
+        public IActionResult Contactanos()
+        {
+            return View();
+        }
+
     }
 }

@@ -98,38 +98,54 @@ VALUES('79654787', 'PEPITO' , 'PICAPIEDRA','1991-08-15','pepe@gmail.com','123456
 SELECT * FROM usuario
 
 
+create table estado_pedido(
+id_estado int primary key,
+des_estado varchar(15)
+)
+go
+
+INSERT INTO estado_pedido VALUES 
+(0, 'En preparación'),
+(1, 'En Camino'),
+(2, 'Entregado')
+go
+
+select * from estado_pedido
+go
 
 
 create table cab_venta(
-
 Id_Venta int identity(1,1) primary key,
 NumFactura char(5) null,
 Total_Fac money null,
 Fecha_Fac Date null,
 IdUsuario int not null,
-foreign key (IdUsuario) references usuario(IdUsuario)
+id_estado int default 0,
+foreign key (IdUsuario) references usuario(IdUsuario),
+foreign key (id_estado) references estado_pedido(id_estado)
 )
 go
 
-INSERT INTO cab_venta VALUES ('10000',5201.32,'2022-04-12',1),
-('10001',3400.00,'2021-09-05',2),
-('10001',2500.50,'2020-12-01',3),
-('10002',622.50,'2022-04-20',3),
-('10002',622.50,'2022-04-20',3),
-('10003',2.00,'2022-04-20',3),
-('10003',2.00,'2022-04-20',3),
-('10003',120.50,'2022-04-20',3),
-('10003',120.50,'2022-04-20',3),
-('0',120.50,'2022-04-20',2),
-('10004',20.00,'2022-04-20',3),
-('10005',401.50,'2022-04-20',3),
-('10006',421.50,'2022-04-20',3),
-('10007',1821.30,'2022-04-20',3),
-('10008',1720.80,'2022-04-20',2),
-('10009',200.56,'2022-04-20',2),
-('10009',200.56,'2022-04-20',2),
-('10010',200.56,'2022-04-20',2),
-('10011',1823.04,'2022-04-20',2);
+INSERT INTO cab_venta VALUES ('10000',5201.32,'2022-04-12',1,0),
+('10001',3400.00,'2021-09-05',2,1),
+('10001',2500.50,'2020-12-01',3,2),
+('10002',622.50,'2022-04-20',3,1),
+('10002',622.50,'2022-04-20',3,0),
+('10003',2.00,'2022-04-20',3,1),
+('10003',2.00,'2022-04-20',3,0),
+('10003',120.50,'2022-04-20',3,0),
+('10003',120.50,'2022-04-20',3,1),
+('0',120.50,'2022-04-20',2,2),
+('10004',20.00,'2022-04-20',3,2),
+('10005',401.50,'2022-04-20',3,1),
+('10006',421.50,'2022-04-20',3,1),
+('10007',1821.30,'2022-04-20',3,2),
+('10008',1720.80,'2022-04-20',2,0),
+('10009',200.56,'2022-04-20',2,0),
+('10009',200.56,'2022-04-20',2,0),
+('10010',200.56,'2022-04-20',2,2),
+('10011',1823.04,'2022-04-20',2,2)
+go
 
 select * from cab_venta
 go
@@ -346,6 +362,14 @@ AS
 END
 GO
 
+CREATE PROCEDURE usp_VentasListar
+AS
+	BEGIN
+	SELECT cv.Id_Venta, cv.NumFactura, cv.Total_Fac, cv.Fecha_Fac, usu.Nombre, epe.des_estado  FROM cab_venta cv INNER JOIN usuario usu
+															ON cv.IdUsuario = usu.IdUsuario INNER JOIN estado_pedido epe
+															ON cv.id_estado = epe.id_estado
+END
+GO
 
 
 

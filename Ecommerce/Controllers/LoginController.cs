@@ -30,6 +30,7 @@ namespace Ecommerce.Controllers
             {
                 HttpContext.Session.SetString("Carrito", JsonConvert.SerializeObject(new List<Item>()));
             }
+
             return View(new Usuario());
         }
 
@@ -62,6 +63,7 @@ namespace Ecommerce.Controllers
                         ModelState.AddModelError(string.Empty, "Verifique sus credenciales");
                     }
                 }
+
             }
 
             return View(model);

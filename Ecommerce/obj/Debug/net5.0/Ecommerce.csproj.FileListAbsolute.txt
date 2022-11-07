@@ -161,3 +161,4 @@ F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Shared\_Vacio.cshtml.g.cs
 F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Administrador\Index.cshtml.g.cs
+F:\CIBERTEC\Ciclo 05- Cibertec\Desarrollo de Servicios WEB 1\WordSpace\Ecommerce\Ecommerce\obj\Debug\net5.0\Razor\Views\Ecommerce\Contactanos.cshtml.g.cs

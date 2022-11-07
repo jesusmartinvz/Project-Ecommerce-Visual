@@ -6,13 +6,9 @@
 <link rel="stylesheet" href="~/css/Layout/style/perzonalizado.css" />
 <br/>
 <h2 style="text-align: center;">Catálogo de Productos</h2>
-<!-- SECTION -->
 <div class="section">
-    <!-- container -->
     <div class="container">
-        <!-- row -->
         <div class="row">
-            <!-- shop -->
             <div class="col-md-4 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
@@ -24,8 +20,6 @@
                     </div>
                 </div>
             </div>
-            <!-- /shop -->
-            <!-- shop -->
             <div class="col-md-4 col-xs-6">
                 <div class="shop">
                     <div class="shop-img">
@@ -64,8 +58,6 @@
         <!-- row -->
         <div class="row">
             <!-- PRODUCTO -->
-            <!--
-    <div class="slick-track" style="opacity:1; width: 390px; transform: translate3d(0px, 0px, 0px);">-->
             @foreach (var item in Model)
             {
                 var oldprice = ((double)item.Precio * 1.15).ToString("0.00");
@@ -73,15 +65,17 @@
                     <div class="product slick-slide slick-current slick-active"
                          tabindex="0" style="width: 360px;" data-slick-index="0" aria-hidder="false">
 
-
-                        <div class="product-img">
-                            
+                        <div class="product-img">                      
                             <img src="@Url.Content(item.Foto)" />
                             <div class="product-label">
-                                <span class="sale">-30%</span>
+                                @{
+                                    int des = (int)(item.Descuento * 100);
+                                }
+                                <span class="sale">-@des%</span>
                                 <span class="new">Nuevo</span>
                             </div>
                         </div>
+
                         <div class="product-body">
                             <p class="product-category">CÓDIGO: @Html.DisplayFor(modelItem => item.CodProducto)</p>
                             <h3 class="product-name"><a href="#">@Html.DisplayFor(modelItem => item.Descripcion)</a></h3>

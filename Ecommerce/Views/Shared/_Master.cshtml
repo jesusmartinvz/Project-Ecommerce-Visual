@@ -94,22 +94,8 @@
                             </form>
                         </div>
                     </div>
-                    <!-- /SEARCH BAR -->
-                    <!-- ACCOUNT -->
                     <div class="col-md-3 clearfix">
                         <div class="header-ctn">
-                            <!-- Wishlist -->
-                            <!--
-    <div>
-        <a href="#">
-            <i class="fa fa-heart-o"></i>
-            <span>Your Wishlist</span>
-            <div class="qty">0</div>
-        </a>
-    </div>
-        -->
-                            <!-- /Wishlist -->
-                            <!-- Wishlist -->
                             <div>
                                 <a asp-action="Carrito" asp-controller="Ecommerce">
                                     <i class="fa fa-shopping-cart"></i>
@@ -117,8 +103,6 @@
                                     <div class="qty">@carrito.Count()</div>
                                 </a>
                             </div>
-                            <!-- /Wishlist -->
-                            <!-- Menu Toogle -->
                             <div class="menu-toggle">
                                 <a href="#">
                                     <i class="fa fa-bars"></i>
@@ -127,134 +111,71 @@
                             </div>
                             <!-- /Menu Toogle -->
                         </div>
+                    </div>
+                    <!-- /ACCOUNT -->
                 </div>
-                <!-- /ACCOUNT -->
+                <!-- row -->
             </div>
-            <!-- row -->
+            <!-- container -->
         </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <!-- /HEADER -->
+    <!-- NAVIGATION -->
+    <nav id="navigation">
         <!-- container -->
-    </div>
-    <!-- /MAIN HEADER -->
-</header>
-<!-- /HEADER -->
-<!-- NAVIGATION -->
-<nav id="navigation">
-    <!-- container -->
-    <div class="container">
-        <!-- responsive-nav -->
-        <div id="responsive-nav">
-            <!-- NAV -->
-            <ul class="main-nav nav navbar-nav">
-                <li class="active"><a asp-action="Catalogo" asp-controller="Ecommerce">Inicio</a></li>
-                <!--
-                <li><a href="#">Hot Deals</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Laptops</a></li>
-                <li><a href="#">Smartphones</a></li>
-                <li><a href="#">Cameras</a></li>
-                <li><a href="#">Accessories</a></li>
-                -->
-            </ul>
-            <!-- /NAV -->
-        </div>
-        <!-- /responsive-nav -->
-    </div>
-    <!-- /container -->
-</nav>
-<!-- /NAVIGATION -->
-<div>
-    @RenderBody()
-</div>
-<!-- NEWSLETTER -->
-<div id="newsletter" class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="newsletter">
-                    <p>Si quieres recibir promociones especiales, suscribete a <strong>PCStore</strong></p>
-                    <form>
-                        <input class="input" type="email" placeholder="Ingrese su Correo">
-                        <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribir</button>
-                    </form>
-                    <ul class="newsletter-follow">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="desactive"><a asp-action="Catalogo" asp-controller="Ecommerce">Inicio</a></li>
+                    <li class="desactive"><a asp-action="Contactanos" asp-controller="Ecommerce">Contactanos</a></li>
+                    <!--
+    <li><a href="#">Hot Deals</a></li>
+    <li><a href="#">Categories</a></li>
+    <li><a href="#">Laptops</a></li>
+    <li><a href="#">Smartphones</a></li>
+    <li><a href="#">Cameras</a></li>
+    <li><a href="#">Accessories</a></li>
+    -->
+                </ul>
+                <!-- /NAV -->
             </div>
+            <!-- /responsive-nav -->
         </div>
-        <!-- /row -->
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+    <div>
+        @RenderBody()
     </div>
-    <!-- /container -->
-</div>
-<!-- /NEWSLETTER -->
-<!-- FOOTER -->
-<footer id="footer">
-    <!-- top footer -->
-    <div class="section">
+    <!-- NEWSLETTER -->
+    <div id="newsletter" class="section">
         <!-- container -->
         <div class="container">
             <!-- row -->
             <div class="row">
-                <div class="col-md-3 col-xs-6">
-                    <div class="footer">
-                        <h3 class="footer-title">Contáctanos</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
-                        <ul class="footer-links">
-                            <li><a href="#"><i class="fa fa-map-marker"></i>Av. Bolivia N° 199 - CC. CENTRO LIMA </a></li>
-                            <li><a href="#"><i class="fa fa-phone"></i>+51-954124015</a></li>
-                            <li><a href="#"><i class="fa fa-envelope-o"></i>ventas@pcstore.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-xs-6">
-                    <div class="footer">
-                        <h3 class="footer-title">Categorias</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">Ofertas especiales</a></li>
-                            <li><a href="#">Laptops</a></li>
-                            <li><a href="#">Periféricos</a></li>
-                            <li><a href="#">Camaras</a></li>
-                            <li><a href="#">Accesorios</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="clearfix visible-xs"></div>
-
-                <div class="col-md-3 col-xs-6">
-                    <div class="footer">
-                        <h3 class="footer-title">Informacion</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">Sobre nosotros</a></li>
-                            <li><a href="#">Contáctenos</a></li>
-                            <li><a href="#">Política de Privacidad</a></li>
-                            <li><a href="#">Pedidos y Devoluciones</a></li>
-                            <li><a href="#">Términos y Condiciones</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-xs-6">
-                    <div class="footer">
-                        <h3 class="footer-title">Servicios</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">Mi cuenta</a></li>
-                            <li><a href="#">Ver Carrito</a></li>
-                            <li><a href="#">Ayuda</a></li>
+                <div class="col-md-12">
+                    <div class="newsletter">
+                        <p>Si quieres recibir promociones especiales, suscribete a <strong>PCStore</strong></p>
+                        <form>
+                            <input class="input" type="email" placeholder="Ingrese su Correo">
+                            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribir</button>
+                        </form>
+                        <ul class="newsletter-follow">
+                            <li>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -263,43 +184,169 @@
         </div>
         <!-- /container -->
     </div>
-    <!-- /top footer -->
-    <!-- bottom footer -->
-    <div id="bottom-footer" class="section">
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <ul class="footer-payments">
-                        <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-                        <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-                        <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-                        <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-                        <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-                        <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-                    </ul>
-                    <span class="copyright">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </span>
+    <!-- /NEWSLETTER -->
+    <!-- FOOTER -->
+    <footer id="footer">
+        <!-- top footer -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Contáctanos</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                            <ul class="footer-links">
+                                <li><a href="#"><i class="fa fa-map-marker"></i>Av. Bolivia N° 199 - CC. CENTRO LIMA </a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i>+51-954124015</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>ventas@pcstore.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Categorias</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Ofertas especiales</a></li>
+                                <li><a href="#">Laptops</a></li>
+                                <li><a href="#">Periféricos</a></li>
+                                <li><a href="#">Camaras</a></li>
+                                <li><a href="#">Accesorios</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Informacion</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Sobre nosotros</a></li>
+                                <li><a href="#">Contáctenos</a></li>
+                                <li><a href="#">Política de Privacidad</a></li>
+                                <li><a href="#">Pedidos y Devoluciones</a></li>
+                                <li><a href="#">Términos y Condiciones</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Servicios</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Mi cuenta</a></li>
+                                <li><a href="#">Ver Carrito</a></li>
+                                <li><a href="#">Ayuda</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+                <!-- /row -->
             </div>
-            <!-- /row -->
+            <!-- /container -->
         </div>
-        <!-- /container -->
-    </div>
-    <!-- /bottom footer -->
-</footer>
-<!-- /FOOTER -->
-<script src="~/js/Layout/js/bootstrap.min.js"></script>
-<script src="~/js/Layout/js/jquery.min.js"></script>
-<script src="~/js/Layout/js/jquery.zoom.min.js"></script>
-<script src="~/js/Layout/js/main.js"></script>
-<script src="~/js/Layout/js/nouislider.min.js"></script>
-<script src="~/js/Layout/js/bootstrap.min.js"></script>
-<script src="~/js/Layout/js/slick.min.js"></script>
+        <!-- /top footer -->
+        <!-- bottom footer -->
+        <div id="bottom-footer" class="section">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class="footer-payments">
+                            <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                            <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                        </ul>
+                        <span class="copyright">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </span>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /bottom footer -->
+        <!-- REDES SOCIALES-->
+        <style type="text/css">
+            .redes-flotantes {
+                position: fixed;
+                left: 20px;
+                top: 75%;
+                z-index: 20;
+            }
+
+                .redes-flotantes img {
+                    float: right;
+                    clear: right;
+                    margin: 5px;
+                    -moz-transform: scale(.8);
+                    -webkit-transform: scale(.8);
+                    -o-transform: scale(.8);
+                    -ms-transform: scale(.8);
+                    transform: scale(.8);
+                    -webkit-transition: all .2s ease-in-out;
+                    -moz-transition: all .2s ease-in-out;
+                    -o-transition: all .2s ease-in-out;
+                    transition: all .2s ease-in-out;
+                }
+
+                    .redes-flotantes img:hover {
+                        -moz-transform: scale(1.1) rotate(6deg);
+                        -webkit-transform: scale(1.1) rotate(6deg);
+                        -o-transform: scale(1.1) rotate(6deg);
+                        -ms-transform: scale(1.1) rotate(6deg);
+                        transform: scale(1.1) rotate(6deg);
+                    }
+        </style>
+        <div class='redes-flotantes'>
+
+
+            <div class="separator" style="clear: both; text-align: left;">
+            </div>
+            <div class="separator" style="clear: both; text-align: center;">
+            </div>
+            <div class="separator" style="clear: both; text-align: center;">
+            </div>
+            <div class="separator" style="clear: both; text-align: left;">
+                <a href="https://api.whatsapp.com/send?phone=51987542148" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;" target="_blank"><img border="0" data-original-height="59" data-original-width="59" src="https://1.bp.blogspot.com/-q3Dot9N2qac/XOQgr9etVpI/AAAAAAABT1M/6V4Bqaqr-6UQcl9Fy2_CaVgex0N_OYuQgCLcBGAs/s1600/whatsapp%2Bicono.png" /></a>
+            </div>
+            <div class="separator" style="clear: both; text-align: center;">
+                <a href="https://es-la.facebook.com/cyccomputer/" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;" target="_blank"><img border="0" data-original-height="59" data-original-width="59" src="https://3.bp.blogspot.com/-SK4W7Kmjoh8/XOQj5wjwERI/AAAAAAABT1g/2i3wxgGTwdU8v67F1rMOAe3ooWu9f2fEACLcBGAs/s1600/facebook%2Bmessenger%2Bicono.png" /></a>
+            </div>
+        </div>
+        <!-- FIN REDES SOCIALES-->
+    </footer>
+    <!-- /FOOTER -->
+    <script src="~/js/Layout/js/bootstrap.min.js"></script>
+    <script src="~/js/Layout/js/jquery.min.js"></script>
+    <script src="~/js/Layout/js/jquery.zoom.min.js"></script>
+    <script src="~/js/Layout/js/main.js"></script>
+    <script src="~/js/Layout/js/nouislider.min.js"></script>
+    <script src="~/js/Layout/js/bootstrap.min.js"></script>
+    <script src="~/js/Layout/js/slick.min.js"></script>
+    <script>
+        window.watsonAssistantChatOptions = {
+            integrationID: "8e85e9bd-91f9-451a-bbed-79fb28b2fe9c", // The ID of this integration.
+            region: "us-south", // The region your integration is hosted in.
+            serviceInstanceID: "ea4540d0-9191-4e7e-95d3-95c160000ebf", // The ID of your service instance.
+            onLoad: function (instance) { instance.render(); }
+        };
+        setTimeout(function () {
+            const t = document.createElement('script');
+            t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+            document.head.appendChild(t);
+        });
+    </script>
 </body>
 
 </html>
