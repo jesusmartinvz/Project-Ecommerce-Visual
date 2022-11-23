@@ -66,7 +66,7 @@ namespace Ecommerce.Repositories
                     cmd.Parameters.AddWithValue("@PDireccion", obj.Direccion);
                     cn.Open();
                     int c = cmd.ExecuteNonQuery();
-                    mensaje = $"se ha insertado {c} Usuario";
+                    mensaje = $"Se ha registrado {c} Usuario exitosamente!";
                 }
                 catch (Exception ex)
                 {

@@ -16,6 +16,7 @@ namespace Ecommerce.Controllers
     {
         private IUsuarioADO usuarioADO;
         const string SesionUsuario = "_UserNormal";
+        const string SesionUsuarioID = "_UserNormalID";
         private readonly IConfiguration _configuration;
 
         public LoginController(IConfiguration configuration)
@@ -56,6 +57,7 @@ namespace Ecommerce.Controllers
                     {
                         Usuario? model2 = usuarioADO.Listar().Where(p => p.Email == model.Email).FirstOrDefault();
                         HttpContext.Session.SetString(SesionUsuario, model2.Nombre);
+                        HttpContext.Session.SetInt32(SesionUsuarioID, model2.IdUsuario);
                         return RedirectToAction("Catalogo", "Ecommerce");
                     }
                     else
@@ -74,6 +76,33 @@ namespace Ecommerce.Controllers
         {
             HttpContext.Session.Remove(SesionUsuario);
             return RedirectToAction("Catalogo", "Ecommerce");
+        }
+
+        public async Task<IActionResult> Register()
+        {
+            if (HttpContext.Session.GetString("Carrito") == null)
+            {
+                HttpContext.Session.SetString("Carrito", JsonConvert.SerializeObject(new List<Item>()));
+            }
+
+            return View(await Task.Run(() => new Usuario()));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(Usuario model)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(await Task.Run(() => model));
+            }
+            else
+            {
+                ViewBag.mensaje = usuarioADO.Agregar(model);
+                await Task.Delay(5000);
+                return RedirectToAction("Index");
+            }
+
         }
     }
 }

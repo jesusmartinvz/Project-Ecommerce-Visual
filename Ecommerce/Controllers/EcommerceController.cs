@@ -14,12 +14,14 @@ namespace Ecommerce.Controllers
     public class EcommerceController : Controller
     {
         private IProductoADO productoADO;
+        private ITransaccionADO transaccionADO;
         private readonly IConfiguration _configuration;
 
         public EcommerceController(IConfiguration configuration)
         {
             _configuration = configuration;
             productoADO = new ProductoRepository();
+            transaccionADO = new TransaccionRepository();
         }
 
         public async Task<IActionResult> Catalogo()
@@ -32,7 +34,9 @@ namespace Ecommerce.Controllers
         }
 
         public async Task<IActionResult> Agregar(int id = 0)
+
         {
+
             return View(await Task.Run(() => productoADO.Obtener(id)));
         }
 
@@ -90,15 +94,43 @@ namespace Ecommerce.Controllers
         public ActionResult Carrito()
         {
             if (HttpContext.Session.GetString("Carrito") == null)
+
                 return RedirectToAction("Catalogo");
 
             IEnumerable<Item> carrito = JsonConvert.DeserializeObject<List<Item>>(HttpContext.Session.GetString("Carrito"));
+
+            ViewBag.dato = carrito;
+
             if (carrito.Count() == 0)
                 return RedirectToAction("Catalogo");
 
             ViewBag.total = carrito.Sum(i => i.Importe).ToString("0.00");
+            ViewBag.numerofactura = transaccionADO.NumFactura();
 
-            return View(carrito);
+            return View(new CabVenta());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Carrito(CabVenta model)
+        {
+            IEnumerable<Item> carrito = JsonConvert.DeserializeObject<List<Item>>(HttpContext.Session.GetString("Carrito"));
+
+            ViewBag.dato = carrito;
+            ViewBag.numerofactura = transaccionADO.NumFactura();
+            if (!ModelState.IsValid)
+            {
+                
+                return View(await Task.Run(() => model));
+            }
+            else
+            {
+                HttpContext.Session.SetString("Carrito", JsonConvert.SerializeObject(new List<Item>()));
+                ViewBag.mensaje = transaccionADO.Agregar(model);
+                var result = RedirectToAction("Catalogo");
+                await Task.Delay(7000);
+                return RedirectToAction("Catalogo");
+            }
+
         }
 
         public IActionResult Quitar(int id)

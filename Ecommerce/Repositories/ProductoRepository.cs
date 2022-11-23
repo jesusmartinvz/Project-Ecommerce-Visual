@@ -64,7 +64,7 @@ namespace Ecommerce.Repositories
                     cmd.Parameters.AddWithValue("@PIdCategoria", obj.IdCategoria);
                     cn.Open();
                     int c = cmd.ExecuteNonQuery();
-                    mensaje = $"se ha insertado {c} Conductor";
+                    mensaje = $"se ha insertado {c} Producto";
                 }
                 catch (Exception ex)
                 {

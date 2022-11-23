@@ -1,0 +1,92 @@
+﻿@model Ecommerce.Models.Usuario
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+<link rel="stylesheet" href="~/css/loginstyle.css" />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 cuerpo_formulario_register">
+            <form asp-action="Register">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="IdUsuario" class="form-control" type="hidden" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Dni" class="control-label"></label>
+                    <input asp-for="Dni" class="form-control" />
+                    <span asp-validation-for="Dni" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Apellido" class="control-label"></label>
+                    <input asp-for="Apellido" class="form-control" />
+                    <span asp-validation-for="Apellido" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FecNacimiento" class="control-label"></label>
+                    <input asp-for="FecNacimiento" class="form-control" />
+                    <span asp-validation-for="FecNacimiento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contraseña" class="control-label"></label>
+                    <input asp-for="Contraseña" class="form-control" />
+                    <span asp-validation-for="Contraseña" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Telefono" class="control-label"></label>
+                    <input asp-for="Telefono" class="form-control" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Direccion" class="control-label"></label>
+                    <input asp-for="Direccion" class="form-control" />
+                    <span asp-validation-for="Direccion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <br />
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header" style="text-align:center">
+                                    <h2 class="modal-title" id="exampleModalLabel">¡Se ha registrado exitosamente!</h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h4>@ViewBag.mensaje</h4>
+                                    <h5>Será redirigido en 5 segundos ...</h5>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- MODAL -->
+                    <input type="submit" value="Registrar" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    @ViewBag.mensaje
+</div>
+
+
+
+

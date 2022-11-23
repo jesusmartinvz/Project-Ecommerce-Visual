@@ -373,6 +373,68 @@ GO
 
 
 
+create table contactos(
+idcontactos int identity(1,1) primary key,
+nombre varchar(50),
+apellido varchar(50),
+correo varchar(45),
+telefono varchar(45),
+descripcion varchar(100),
+motivo varchar(45)
+)
+go
+
+--insertando 
+
+INSERT INTO contactos VALUES('Roberto', 'Munoz', 'roberto@hotmail.com', '98754784', 'Necesito equipos para mi empresa', 'Reventa');
+INSERT INTO contactos VALUES('Carlos', 'Zambrano', 'elpulpo@hotmail.com', '99512012', 'El servicio que me brindaron fue pésimo', 'Queja');
+INSERT INTO contactos VALUES('Jhonny', 'Chero', 'Jhonny@gmail.com', '98745124', 'Necesito equipor por mayor para negocio.', 'Reventa');
+
+
+select * from contactos
+go;
 
 
 
+CREATE PROCEDURE SP_CONTACTOS(
+@nombre varchar(50),
+@apellido varchar(50),
+@correo varchar(45),
+@telefono varchar(45),
+@descripcion varchar(100),
+@motivo varchar(45)
+)
+AS
+	BEGIN
+	INSERT INTO contactos(nombre, apellido, correo, telefono, descripcion, motivo)
+	VALUES(@nombre, @apellido, @correo, @telefono, @descripcion, @motivo)
+	END
+GO
+
+EXECUTE SP_CONTACTOS 'Hugo', 'Chavez', 'Hugo@peru.net', '95421477', 'Tengo un reclamo por mala atención', 'Queja'
+GO
+
+
+
+CREATE PROCEDURE usp_Transaccion(
+@NumFactura char(5),
+@Total_Fac money,
+@IdUsuario int,
+@id_estado int
+)
+AS
+	Insert Into cab_venta (NumFactura, Total_Fac, Fecha_Fac, IdUsuario, id_estado)
+	Values(@NumFactura, @Total_Fac, GETDATE(), @IdUsuario, @id_estado)
+GO
+
+EXEC usp_Transaccion '10011', 5000.00, 1, 0
+GO
+
+
+
+CREATE PROCEDURE usp_NumFactura
+AS
+	BEGIN
+	SELECT MAX(NumFactura) NumFactura FROM cab_venta
+	END
+GO

@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
-@model IEnumerable<Ecommerce.Models.Item>
+@model Ecommerce.Models.CabVenta
+
 @{
     ViewData["Title"] = "Carrito";
     Layout = "~/Views/Shared/_Master.cshtml";
@@ -17,7 +18,7 @@
             </div>
             <div class="col-md-6 order-details">
                 <div class="section-title text-center">
-                    <h3 class="title">Su Orden</h3>
+                    <h3 class="title">Su Orden #@ViewBag.numerofactura</h3>
                 </div>
                 <div class="order-summary">
                     <div class="order-col">
@@ -26,11 +27,11 @@
                         <div><strong></strong></div>
                     </div>
                     <div class="order-products">
-                        @foreach (var item in Model)
+                        @foreach (var item in ViewBag.dato)
                         {
                             <div class="order-col">
-                                <div>@Html.DisplayFor(modelItem => item.Unidades)x @Html.ActionLink(item.Descripcion, "Agregar", new { id = item.IdProducto })</div>
-                                <div>@Html.DisplayFor(modelItem => item.Importe)</div>
+                                <div>@item.Unidades x @item.Descripcion</div>
+                                <div>@item.Importe.ToString("N2")</div>
                                 <div>@Html.ActionLink("", "Quitar", new { id = item.IdProducto }, new { @class = "fa fa-trash fa-2x" })</div>
                             </div>
                         }
@@ -85,18 +86,54 @@
                         He leído y acepto los <a href="#">términos y condiciones</a>
                     </label>
                 </div>
+                <a asp-action="Catalogo" asp-controller="Ecommerce" class="btn btn-primary order-submit border border-info rounded-6 text-bold">Seguir Comprando</a>
+
                 @{
                     if ((Context.Session.GetString("_UserNormal") == null) || (Context.Session.GetString("_UserNormal") == ""))
                     {
-                                <a asp-action="Index" asp-controller="Login" class="primary-btn order-submit">Ordenar ahora</a>
+
+                        <a asp-action="Index" asp-controller="Login" class="primary-btn order-submit">Ordenar ahora</a>
                     }
                     else
                     {
-            <a href="#" class="primary-btn order-submit">Ordenar ahora</a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="text-align:center">
+                                        <h2 class="modal-title" id="exampleModalLabel">¡Su compra ha sido exitosa!</h2>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h4>Le avisaremos cuando su pedido este en camino.</h4>
+                                        <h5>Recuerda que para recibir su pedido deberá presentar su DNI</h5>
+                                        <br />
+                                        <h5>Será redirigido en 5 segundos ...</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- MODAL -->
+                        <form asp-action="Carrito">
+                            <input asp-for="Id_Venta" class="form-control" type="hidden" />
+                            <input asp-for="NumFactura" class="form-control" value="@ViewBag.numerofactura" type="hidden" />
+                            <input asp-for="Total_Fac" class="form-control" value="@ViewBag.total" type="hidden" />
+                            <input asp-for="IdUsuario" class="form-control" value=@Context.Session.GetInt32("_UserNormalID") type="hidden" />
+                            <div class="form-group">
+                                <input type="submit" value="Ordenar ahora" class="primary-btn order-submit" style="width:100%" data-toggle="modal" data-target="#exampleModal" />
+                            </div>
+                        </form>
+
+                        //<a href="#" class="primary-btn order-submit">Ordenar ahora</a>
                     }
                 }
-                
-                
+
+
             </div>
             <!-- /Order Details -->
         </div>
